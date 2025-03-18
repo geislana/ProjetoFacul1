@@ -1,0 +1,16 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL") // Conexão com o MySQL
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Animal {
+  id       Int      @id @default(autoincrement())
+  nome     String
+  idade    Int
+  especie  String
+  criadoEm DateTime @default(now())
+}
